@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassManager", "GlassManager\GlassManager.csproj", "{A3C2D89C-05DE-40E7-B1AB-F489E8907F75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassManager.UITests", "GlassManager.UITests\GlassManager.UITests.csproj", "{81D86B10-3315-4C30-8203-AB725B20ECE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3C2D89C-05DE-40E7-B1AB-F489E8907F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C2D89C-05DE-40E7-B1AB-F489E8907F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C2D89C-05DE-40E7-B1AB-F489E8907F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C2D89C-05DE-40E7-B1AB-F489E8907F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D86B10-3315-4C30-8203-AB725B20ECE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D86B10-3315-4C30-8203-AB725B20ECE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D86B10-3315-4C30-8203-AB725B20ECE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D86B10-3315-4C30-8203-AB725B20ECE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
