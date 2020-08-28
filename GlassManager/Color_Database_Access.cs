@@ -3,7 +3,6 @@ using System.IO;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-
 namespace GlassManager
 {
 
@@ -38,30 +37,71 @@ namespace GlassManager
             return;
         }
 
+        public void throw_notification(String str, int p)
+        {
+            //atempt to get correct colour
+            int color_value = this_database.determine_color(str, p);
+            this.push_alert(color_value);
+            return;
+        }
+
+
+        private void push_alert(int color_space){
+
+            //serialize color to be commuted over bluetooth protocol 
+
+
+            return;
+        }
 
 
     }
     class Color_Database
     {
 
-        private List<Notification_data> notification_summary = new List<Notification_data>();
+        private Notification_data[] notification_summary;
+        float notification_fill = 0;
         int default_color = 0;
 
-        public void add_gerenal(string Name)
+        public Color_Database(){
+            notification_summary = new Notification_data[100];
+        }
+
+        //returns int of corresponding color space 
+        //input: str ( notification title) p ( notifiication prioirty)
+        public int determine_color(String str, int p){
+
+            return 0;
+        }
+        private void reallocate_array(){
+            return;
+        }
+        //adds raw Notification Data Class to array - assumes default values 
+        public void add_gerenal(string Name, int priority)
         {
-            //first ensure not making a duplicate 
-            int i = 0;
-            while (i < this.notification_summary.Count){
+            if(notification_fill > 0.7f){
+                this.reallocate_array();
+            }
+
+            int hash = Name.GetHashCode() % this.notification_summary.Length;
+
+
+            
+            
+
+            /*
+            while (i < this.notification_summary.Length){ //replace with hash
                 if (this.notification_summary[i].get_NAME().Equals(Name)){
                     return;
                 }
 
                 i++;
             }
+            */
 
             //if we got here its a new boi
             Notification_data new_notification_set = new Notification_data(Name, this.default_color);
-            this.notification_summary.Add(new_notification_set);
+            ///this.notification_summary.Add(new_notification_set);
             return;
         }
        
@@ -71,6 +111,7 @@ namespace GlassManager
     {
 
         private string NOTIFICATION_NAME = "";
+        private string GENERAL_NAME = "";
         private int NOTIFICATION_STATE = -1;
         private bool customized = false;
 

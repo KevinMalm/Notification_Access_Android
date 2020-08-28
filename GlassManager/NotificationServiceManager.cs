@@ -15,17 +15,27 @@ namespace GlassManager
 {
     [Service(Label = "NotificationListenServiceSystem", Permission = "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE")]
     [IntentFilter(new[] { "android.service.notification.NotificationListenerService" })]
-    public class NotificationService: NotificationListenerService
+
+    public class NotificationServiceManager : NotificationListenerService
     {
         public static Notification_logger DATABASE = null;
-        public static NotificationService service_OBJ = null;
-        public NotificationService()
+        public static NotificationServiceManager service_OBJ = null;
+
+
+        public NotificationServiceManager()
         {
-            if (service_OBJ == null)
-                service_OBJ = new NotificationService();
             if (DATABASE == null)
-                DATABASE = new Notification_logger();
+                DATABASE = Notification_logger.Attempt_load_in();
             return;  
+        }
+
+
+        public static NotificationServiceManager ensure_Exits(){
+            if (NotificationServiceManager.service_OBJ == null) {
+                service_OBJ = new NotificationServiceManager();
+
+            }
+            return NotificationServiceManager.service_OBJ;
         }
 
         public override void OnNotificationPosted(StatusBarNotification sbn)

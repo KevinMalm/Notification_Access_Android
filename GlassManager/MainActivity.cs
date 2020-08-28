@@ -1,27 +1,36 @@
-﻿using Android.App;
+﻿using System.Collections.Generic;
+using Android.App;
 using Android.Widget;
 using Android.OS;
+using Android.Views;
+using System;
+using Android.Content;
+using Android.Content.PM;
 
 namespace GlassManager
 {
     [Activity(Label = "GlassManager", MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
-        int count = 1;
+
+
+        private ListViewPannel list_pannel;
+        private ListView listView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.myButton);
+            //Lets Create the Notification Preference OBJ
+            Notification_Preferences_Manager.attempt_load_in();
 
-            button.Click += delegate { button.Text = $"{count++} clicks!"; };
+
         }
+
+
+
+
     }
 }
 
